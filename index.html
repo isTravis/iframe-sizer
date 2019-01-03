@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<script>
+			window.onload = function () {
+				function setScale() {
+					var params = {};
+					window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+						params[key] = value;
+					});
+					var width = params.width || '1280';
+					var scale = window.innerWidth / Number(width);
+
+					document.getElementById('iframe').src = params.url
+					document.getElementById('iframe').style.width = width + 'px';
+					document.getElementById('iframe').style.transform = 'scale(' + scale + ')';	
+				}
+				setScale();
+				window.addEventListener('resize', setScale);
+			}
+		</script>
+		<style>
+			body {
+				margin: 0;
+			}
+			#wrapper {
+				overflow: hidden;
+			}
+			#iframe {
+				transform-origin: 0 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<iframe src="" id="iframe" height="100%" frame-border="0">	
+		</div>
+	</body>
+</html>

@@ -12,6 +12,7 @@
 
 					document.getElementById('iframe').src = params.url
 					document.getElementById('iframe').style.width = width + 'px';
+					document.getElementById('iframe').style.height = 'calc(100vh / ' + scale +')';
 					document.getElementById('iframe').style.transform = 'scale(' + scale + ')';	
 				}
 				setScale();
@@ -21,6 +22,7 @@
 		<style>
 			body {
 				margin: 0;
+				overflow: hidden;
 			}
 			#wrapper {
 				overflow: hidden;
